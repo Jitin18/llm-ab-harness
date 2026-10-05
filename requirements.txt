@@ -1,0 +1,10 @@
+# Core (needed for the simulated / offline run -- no API keys required)
+numpy>=1.26
+scipy>=1.11
+
+# Real evaluation mode (--real). Needed only for live RAGAS + LLM judge + OpenAI.
+# RAGAS is version-sensitive; this project targets the 0.2.x API.
+ragas>=0.2,<0.3
+langchain-openai>=0.1.7
+openai>=1.30
+datasets>=2.19

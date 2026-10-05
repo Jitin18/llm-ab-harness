@@ -1,0 +1,26 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "llm-ab-harness"
+version = "0.1.0"
+description = "Online A/B testing harness for LLM features (RAGAS + LLM-judge + stats)."
+readme = "README.md"
+requires-python = ">=3.10"
+license = { file = "LICENSE" }
+keywords = ["llm", "a-b-testing", "evaluation", "ragas", "rag", "experimentation"]
+dependencies = ["numpy>=1.26", "scipy>=1.11"]
+
+[project.optional-dependencies]
+real = ["ragas>=0.2,<0.3", "langchain-openai>=0.1.7", "openai>=1.30", "datasets>=2.19"]
+dev = ["pytest>=7.0"]
+
+[project.scripts]
+llm-ab-harness = "llm_ab_harness.run_experiment:main"
+
+[tool.setuptools.packages.find]
+include = ["llm_ab_harness*"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
